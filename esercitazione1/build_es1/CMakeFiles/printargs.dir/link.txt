@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall -Wl,--dependency-file=CMakeFiles/printargs.dir/link.d CMakeFiles/printargs.dir/printargs.cpp.o -o printargs

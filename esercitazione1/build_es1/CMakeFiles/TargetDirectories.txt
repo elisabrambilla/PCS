@@ -1,0 +1,4 @@
+/home/pcsdocker/Data/PCS/esercitazione1/build_es1/CMakeFiles/printargs.dir
+/home/pcsdocker/Data/PCS/esercitazione1/build_es1/CMakeFiles/medie_t.dir
+/home/pcsdocker/Data/PCS/esercitazione1/build_es1/CMakeFiles/edit_cache.dir
+/home/pcsdocker/Data/PCS/esercitazione1/build_es1/CMakeFiles/rebuild_cache.dir
