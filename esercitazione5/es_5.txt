@@ -1,0 +1,43 @@
+Compilando in Debug: ho switch da Insertion a Quick intorno a 53/54
+Compilando in Release: ho switch da Insertion a Quick intorno a 201, con un inizio a 192, e uno strano ritorno di Insertion a n=279 ma isolato.
+Dim = 196	Algoritmo: Insertion Sort	Tempo: 4.7675e-06
+Dim = 197	Algoritmo: Insertion Sort	Tempo: 4.87792e-06
+Dim = 198	Algoritmo: Insertion Sort	Tempo: 4.97542e-06
+Dim = 199	Algoritmo: Insertion Sort	Tempo: 5.09417e-06
+Dim = 200	Algoritmo: Insertion Sort	Tempo: 5.11833e-06
+Dim = 201	Algoritmo: Quick Sort	Tempo: 5.16292e-06
+Dim = 202	Algoritmo: Quick Sort	Tempo: 5.26042e-06
+Dim = 203	Algoritmo: Quick Sort	Tempo: 5.23709e-06
+Dim = 204	Algoritmo: Quick Sort	Tempo: 5.3225e-06
+Dim = 205	Algoritmo: Quick Sort	Tempo: 5.28459e-06
+
+Release con My-sort
+
+Dim = 196	Algoritmo: Insertion Sort	Tempo: 4.58917e-06
+Dim = 197	Algoritmo: Insertion Sort	Tempo: 4.64125e-06
+Dim = 198	Algoritmo: Insertion Sort	Tempo: 4.73291e-06
+Dim = 199	Algoritmo: Insertion Sort	Tempo: 4.73375e-06
+Dim = 200	Algoritmo: Insertion Sort	Tempo: 4.76458e-06
+Dim = 201	Algoritmo: My Sort	Tempo: 4.96709e-06
+Dim = 202	Algoritmo: My Sort	Tempo: 4.96e-06
+Dim = 203	Algoritmo: My Sort	Tempo: 4.99083e-06
+Dim = 204	Algoritmo: My Sort	Tempo: 5e-06
+Dim = 205	Algoritmo: My Sort	Tempo: 5.01666e-06
+
+
+Per dimensioni [2:15:287]
+Bubble-sort: 1.334e-08	1.39125e-06	3.44667e-06	4.31875e-06	5.11334e-06	6.1825e-06	8.0075e-06	1.02421e-05	1.27742e-05	1.56425e-05	1.83429e-05	2.15754e-05	2.49904e-05	2.85233e-05	3.22737e-05	3.62204e-05	4.08583e-05	4.52763e-05	4.98758e-05	5.45967e-05	
+Insertion-sort: 1.292e-08	3.9875e-07	7.2792e-07	8.1542e-07	9.7709e-07	1.03666e-06	1.34916e-06	1.6825e-06	2.06875e-06	2.51958e-06	2.97084e-06	3.54833e-064.05041e-06	4.64125e-06	5.27334e-06	5.99209e-06	6.70041e-06	7.54416e-06	8.32917e-06	8.98417e-06	
+Selection-sort: 7.5e-09	1.0375e-06	2.87e-06	4.02584e-06	5.18792e-06	6.57e-06	9.27541e-06	1.29083e-05	1.69388e-05	2.10758e-05	2.59496e-05	3.15929e-05	3.75696e-05	4.42508e-05	5.15633e-05	5.932e-05	6.75904e-05	7.63921e-05	8.61542e-05	9.62787e-05	
+Merge-sort: 1.1583e-07	2.435e-06	4.10667e-06	4.36833e-06	4.22e-06	4.62916e-06	5.6225e-06	6.50459e-06	7.44042e-06	8.43417e-06	9.51625e-06	1.064e-05	1.18825e-05	1.29546e-05	1.37979e-05	1.44654e-05	1.54042e-05	1.62404e-05	1.76321e-05	1.87204e-05	
+Quick-sort: 1.5e-08	7.2583e-07	1.42125e-06	1.37708e-06	1.5225e-06	1.57958e-06	1.9175e-06	2.36709e-06	2.70167e-06	3.12083e-06	3.49167e-06	3.91625e-06	4.4925e-06	4.77208e-06	5.2025e-06	5.66917e-06	6.25917e-06	6.62375e-06	7.03292e-06	7.43209e-06	
+My-sort: 1.542e-08	4.2083e-07	7.9834e-07	1.005e-06	9.6e-07	1.09167e-06	1.47167e-06	1.77584e-06	2.2e-06	2.67334e-06	3.14417e-06	3.77583e-06	4.3425e-06	4.95041e-06	4.78375e-06	5.05125e-06	5.55209e-06	5.89125e-06	6.42792e-06	6.74167e-06	
+Std sort: 1.709e-08	5.7583e-07	1.11041e-06	1.20833e-06	1.28167e-06	1.39209e-06	1.68375e-06	2.05667e-06	2.39625e-06	2.80417e-06	3.23583e-06	3.54625e-06	3.94333e-06	4.22417e-06	4.66375e-06	5.08334e-06	5.44167e-06	5.92667e-06	6.35e-06	6.67041e-06	
+
+Il main da me costruito, 'confronti.cpp' ha due funzioni principali, da un lato mostra le medie (tra 100 vettori) dei tempi di ordinamento di un vettore lungo n (tra 2 e 301) in base ai diversi algoritmi implementati (Bubble-sort, Insertion-sort, Selection-sort, Merge-sort e Quicksort), dall'altro sceglie per ognuna di queste dimensioni l'algoritmo più veloce.
+Confrontando dunque gli algoritmi più veloci si nota che, con compilazione in Release, fino a n=200 circa, il migliore è Insertion-sort, successivamente è Quick-sort.
+Ho dunque implementato un algoritmo ibrido variante di Quick-sort, dal nome My-sort, che per dimensioni del vettore (o della partizione di vettore) inferiori a 200 chiama Insertion-sort invece che sè stesso (come da standard Quick-sort).
+Effettuando nuovamente il confronto tra tempi dei diversi algoritmi, tra cui adesso anche My-sort, ho verificato l'ottimalità di questo algoritmo.
+Per dimensioni inferiori a 200 vince sempre l'Insertion-sort tradizionale, ma questo è giustificato dal fatto che il My-sort deve prima effettuare un controllo di dimensione e solo dopo tale if effettua eventualmente la chiamata a Insertion-sort.
+Invece per dimensioni superiori a 200 vince definitivamente il My-sort.
+Anche dal grafico con in ascissa le dimensioni e in ordinata i tempi per i diversi algoritmi si può notare per n < 200 una strettissima somiglianza tra il My-sort e Insertion-sort, e per n > 200 una performarce di My-sort quasi sovrapposta ai tempi di ordinamento tramite la funzione della libreria standard sort(), la quale viene addirittura superata per velocità per n < 150 circa (probabilmente perchè il My-sort è costruito su una soglia, n = 200, ad hoc per la cpu di questo specifico computer).
