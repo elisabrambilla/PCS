@@ -59,5 +59,13 @@ int main()
     std::cout<< v4[i] << "\t";
    }
    std::cout << std::endl;
+
+   undirected_graph<int> djk_fifo = dijkstra_fifo(grafo, 1); // algoritmo di Dijkstra
+   std::vector<undirected_edge<int>> v5 = djk_fifo.all_edges();
+   std::cout<< "Dijkstra_fifo : archi ";
+   for (int i=0; i< v5.size(); i++) {
+    std::cout<< v5[i] << "\t";
+   }
+   std::cout << std::endl;
    
 }
